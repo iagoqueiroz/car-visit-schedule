@@ -16,12 +16,9 @@ $container = $containerBuilder->build();
 AppFactory::setContainer($container);
 $app = AppFactory::create();
 
-// Add Routing Middleware
-$app->addRoutingMiddleware();
-
-// Add Error Handling Middleware
-$displayErrorDetails = $container->get('settings')['displayErrorDetails'];
-$app->addErrorMiddleware($displayErrorDetails, false, false);
+// Register middlewares
+$middlewares = require __DIR__ . '/../app/middlewares.php';
+$middlewares($app);
 
 // Register routes
 $routes = require __DIR__ . '/../app/routes.php';
