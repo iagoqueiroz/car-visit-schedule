@@ -23,4 +23,11 @@ class ScheduleRepository
     {
         return $this->connection->where('car_id', $carId)->get();
     }
+
+    public function createFromCarId(int $carId, array $data)
+    {
+        $data = array_merge($data, ['car_id' => $carId]);
+
+        return $this->connection->insertGetId($data);
+    }
 }

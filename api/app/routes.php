@@ -3,6 +3,7 @@ declare (strict_types = 1);
 
 use App\Application\Action\Car\ListCarsAction;
 use App\Application\Action\Car\ViewCarAction;
+use App\Application\Action\Schedule\AddCarScheduleAction;
 use App\Application\Action\Schedule\ViewCarSchedulesAction;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -26,5 +27,6 @@ return function (App $app) {
 
         // Get all schedules from car id
         $group->get('/{id}/schedules', ViewCarSchedulesAction::class);
+        $group->post('/{id}/schedules', AddCarScheduleAction::class);
     });
 };
