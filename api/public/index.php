@@ -68,6 +68,13 @@ $app->group('/cars', function (RouteCollectorProxy $group) use ($cars) {
 
     // Get all car resources
     $group->get('', function (Request $request, Response $response) use ($cars) {
+        // hide schedules info from main request
+        $cars = array_map(function($car) {
+            unset($car['schedules']);
+
+            return $car;
+        }, $cars);
+
         $payload = json_encode($cars, JSON_PRETTY_PRINT);
 
         $response->getBody()->write($payload);
@@ -97,6 +104,7 @@ $app->group('/cars', function (RouteCollectorProxy $group) use ($cars) {
             ->withStatus(200);
     });
 
+    // Get schedules from single car
     $group->get('/{id}/schedules', function (Request $request, Response $response, $args) use ($cars) {
         $carId = $args['id'];
 
