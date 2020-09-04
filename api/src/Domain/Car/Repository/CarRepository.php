@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Domain\Car\Repository;
 
 use Illuminate\Database\Connection;
@@ -15,7 +14,7 @@ class CarRepository
         $this->connection = $connection->table($this->table);
     }
 
-    public function findById(int $carId): array
+    public function findById(int $carId): ?object
     {
         return $this->connection->find($carId);
     }
