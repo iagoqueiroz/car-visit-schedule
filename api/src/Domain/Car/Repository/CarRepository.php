@@ -1,6 +1,7 @@
 <?php
 namespace App\Domain\Car\Repository;
 
+use App\Domain\Car\Car;
 use Illuminate\Database\Connection;
 use Illuminate\Support\Collection;
 
@@ -14,13 +15,19 @@ class CarRepository
         $this->connection = $connection->table($this->table);
     }
 
-    public function findById(int $carId): ?object
+    public function findById(int $carId): Car
     {
-        return $this->connection->find($carId);
+        $car = (array) $this->connection->find($carId);
+
+        return new Car($car);
     }
 
     public function getAll(): Collection
     {
-        return $this->connection->get();
+        $cars = $this->connection->get();
+
+        return $cars->map(function ($car) {
+            return new Car((array) $car);
+        });
     }
 }
