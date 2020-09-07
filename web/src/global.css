@@ -30,11 +30,14 @@ html, body, #root {
     border-radius: 8px;
     border: 1px solid var(--color-light-gray);
     overflow: hidden;
+    width: 100%;
+    height: auto;
 }
 
 :root {
     --color-white: #FFFFFF;
     --color-primary: #e74c3c;
+    --color-primary-hover: #c0392b;
     --color-gray: #7f8c8d;
     --color-dark-gray: #2c3e50;
     --color-light-gray: #ecf0f1;

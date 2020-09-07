@@ -1,0 +1,14 @@
+a.btn {
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 17px 22px;
+  border-radius: 5px;
+  font-weight: bold;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color .2s linear;
+}
+
+a.btn:hover {
+  background-color: var(--color-primary-hover);
+}
