@@ -153,3 +153,44 @@ main#main-content .card-content .card-button {
     color: var(--color-white);
 }
 /* hour list end */
+
+/* form start */
+.form {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.input-group {
+    width: 100%;
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: 1px solid var(--color-light-gray);
+    margin-bottom: 20px;
+    transition: border-color .2s linear;
+}
+
+.input-group label {
+    display: block;
+    font-size: 12px;
+    color: var(--color-dark-gray);
+}
+
+.input-group input {
+    border: none;
+    border-bottom: 1px solid transparent;
+    outline: none;
+    width: 100%;
+    display: block;
+    padding: 4px 0;
+    color: var(--color-dark-gray);
+    font-size: 14px;
+}
+
+.input-group input:focus {
+    border-bottom: 1px solid var(--color-light-gray);
+}
+
+.input-group:focus-within {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+/* form end*/
