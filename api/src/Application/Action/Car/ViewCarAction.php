@@ -20,7 +20,7 @@ class ViewCarAction
 
         $car = $this->carRepository->findById($carId);
 
-        if (!$car) {
+        if (!$car->getId()) {
             $response->getBody()->write(json_encode(['error' => 'Car not found!'], JSON_PRETTY_PRINT));
 
             return $response->withHeader('Content-Type', 'application/json')
