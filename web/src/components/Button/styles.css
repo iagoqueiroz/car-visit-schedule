@@ -1,4 +1,4 @@
-a.btn {
+button.btn {
   background: var(--color-primary);
   color: var(--color-white);
   padding: 17px 22px;
@@ -7,8 +7,14 @@ a.btn {
   display: inline-block;
   cursor: pointer;
   transition: background-color .2s linear;
+  border: none;
 }
 
-a.btn:hover {
+button.btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+button.btn:hover:not(:disabled) {
   background-color: var(--color-primary-hover);
 }

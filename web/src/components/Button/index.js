@@ -2,11 +2,11 @@ import React from "react";
 
 import "./styles.css";
 
-const Button = (props) => (
+const Button = ({ disabled = false, ...props }) => (
   <React.Fragment>
-    <a className="btn" {...props}>
+    <button type="button" disabled={disabled} className="btn" {...props}>
       {props.children}
-    </a>
+    </button>
   </React.Fragment>
 );
 
