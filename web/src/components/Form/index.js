@@ -6,12 +6,12 @@ import FirstStep from "../Steps/FirstStep";
 import SecondStep from "../Steps/SecondStep";
 
 const Form = (props) => {
-  const context = useContext(FormContext);
+  const { step } = useContext(FormContext);
 
   return (
     <React.Fragment>
-      {context.form.step === 1 && <FirstStep />}
-      {context.form.step === 2 && <SecondStep />}
+      {step === 1 && <FirstStep />}
+      {step === 2 && <SecondStep />}
     </React.Fragment>
   );
 };

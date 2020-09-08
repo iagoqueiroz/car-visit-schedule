@@ -3,8 +3,9 @@ import React, { useState, createContext } from "react";
 export const FormContext = createContext();
 
 const FormProvider = ({ children }) => {
+  const [step, setStep] = useState(1);
+
   const [form, setForm] = useState({
-    step: 1,
     visit_date: "",
     visitant_name: "",
     visitant_email: "",
@@ -12,7 +13,7 @@ const FormProvider = ({ children }) => {
   });
 
   return (
-    <FormContext.Provider value={{ form, setForm }}>
+    <FormContext.Provider value={{ form, setForm, step, setStep }}>
       {children}
     </FormContext.Provider>
   );

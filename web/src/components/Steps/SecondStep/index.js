@@ -1,8 +1,33 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+
+import { FormContext } from "../../../contexts/FormContext";
 
 import Button from "../../Button";
 
 const FirstStep = (props) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+
+  const { form, setForm } = useContext(FormContext);
+
+  const hasEmptyFields = !name || !email || !phone;
+
+  function sendForm(e) {
+    e.preventDefault();
+
+    const newForm = {
+      ...form,
+      visitant_name: name,
+      visitant_email: email,
+      visitant_phone: phone,
+    };
+
+    setForm(newForm);
+
+    console.log(newForm);
+  }
+
   return (
     <div className="card card-content">
       <div className="card-title">Agende o dia e horário da sua visita</div>
@@ -11,21 +36,38 @@ const FirstStep = (props) => {
         <div className="form">
           <div className="input-group">
             <label htmlFor="name">Nome</label>
-            <input type="text" />
+            <input
+              id="name"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
           </div>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <div className="input-group" style={{ width: "48%" }}>
-              <label htmlFor="name">E-mail</label>
-              <input type="text" />
+              <label htmlFor="email">E-mail</label>
+              <input
+                id="email"
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
             <div className="input-group" style={{ width: "48%" }}>
-              <label htmlFor="name">Telefone</label>
-              <input type="text" />
+              <label htmlFor="phone">Telefone</label>
+              <input
+                id="phone"
+                type="text"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
             </div>
           </div>
         </div>
         <div className="card-button">
-          <Button>Concluir</Button>
+          <Button onClick={sendForm} disabled={hasEmptyFields}>
+            Concluir
+          </Button>
         </div>
       </div>
     </div>

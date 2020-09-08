@@ -12,7 +12,7 @@ const FirstStep = (props) => {
   const [date, setDate] = useState("");
   const [hour, setHour] = useState("");
 
-  const { form, setForm } = useContext(FormContext);
+  const { form, setForm, setStep } = useContext(FormContext);
 
   function nextStep(e) {
     e.preventDefault();
@@ -20,8 +20,9 @@ const FirstStep = (props) => {
     setForm({
       ...form,
       visit_date: `${date} ${hour}`,
-      step: 2,
     });
+
+    setStep(2);
   }
 
   return (
