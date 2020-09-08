@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import moment from "../../../utils/moment";
+import api from "../../../services/api";
 
 import { FormContext } from "../../../contexts/FormContext";
 
@@ -14,7 +15,7 @@ const FirstStep = (props) => {
 
   const hasEmptyFields = !name || !email || !phone;
 
-  function sendForm(e) {
+  function updateForm(e) {
     e.preventDefault();
 
     const newForm = {
@@ -26,7 +27,17 @@ const FirstStep = (props) => {
 
     setForm(newForm);
 
-    console.log(newForm);
+    sendSchedule(newForm);
+  }
+
+  async function sendSchedule(form) {
+    try {
+      await api.post("/cars/1/schedules", form);
+
+      alert("Agendamento concluído com sucesso!");
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
@@ -68,7 +79,7 @@ const FirstStep = (props) => {
           </div>
         </div>
         <div className="card-button">
-          <Button onClick={sendForm} disabled={hasEmptyFields}>
+          <Button onClick={updateForm} disabled={hasEmptyFields}>
             Concluir
           </Button>
         </div>
