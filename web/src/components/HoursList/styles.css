@@ -1,0 +1,25 @@
+/* hour list start */
+.hour-list {
+    display: flex;
+    width: 85%;
+    margin: 0 auto;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.hour-list .hour-item {
+    padding: 7px 16px;
+    background: var(--color-light-gray);
+    color: var(--color-dark-gray);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.hour-list .hour-item.active {
+    background-color: var(--color-green);
+    color: var(--color-white);
+}
+/* hour list end */

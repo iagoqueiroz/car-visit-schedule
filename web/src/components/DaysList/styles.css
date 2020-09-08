@@ -1,0 +1,30 @@
+/* days list start */
+.days-list {
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.days-list .day-group {
+    display: flex;
+    flex-direction: column;
+    width: 64px;
+    height: 64px;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-light-gray);
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--color-dark-gray);
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.days-list .day-group.active {
+    background-color: var(--color-green);
+    color: var(--color-white);
+}
+/* days list end */
