@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import moment from "../../../utils/moment";
 
 import { FormContext } from "../../../contexts/FormContext";
 
@@ -32,7 +33,9 @@ const FirstStep = (props) => {
     <div className="card card-content">
       <div className="card-title">Agende o dia e horário da sua visita</div>
       <div className="card-body">
-        <div className="card-subtitle">Terça, 23 de Março, 14 horas</div>
+        <div className="card-subtitle">
+          {moment(form.visit_date).format("dddd, DD [de] MMMM [às] HH [horas]")}
+        </div>
         <div className="form">
           <div className="input-group">
             <label htmlFor="name">Nome</label>
