@@ -22,4 +22,9 @@
     background-color: var(--color-green);
     color: var(--color-white);
 }
+
+.hour-list .hour-item.disabled {
+    opacity: .5;
+    cursor: default;
+}
 /* hour list end */

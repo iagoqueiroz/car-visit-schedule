@@ -13,6 +13,7 @@ body {
     font-size: 14px;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+    background: #F9F9F9;
 }
 
 html, body, #root {
