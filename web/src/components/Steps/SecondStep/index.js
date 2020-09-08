@@ -11,7 +11,7 @@ const FirstStep = (props) => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
-  const { form, setForm } = useContext(FormContext);
+  const { form, setForm, setStep } = useContext(FormContext);
 
   const hasEmptyFields = !name || !email || !phone;
 
@@ -34,7 +34,7 @@ const FirstStep = (props) => {
     try {
       await api.post("/cars/1/schedules", form);
 
-      alert("Agendamento concluído com sucesso!");
+      setStep(3);
     } catch (err) {
       console.log(err);
     }

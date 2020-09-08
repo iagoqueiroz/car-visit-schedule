@@ -1,0 +1,66 @@
+.final-step .card-body {
+    background: var(--color-light-gray);
+    text-align: center;
+    padding: 20px;
+    color: var(--color-dark-gray);
+}
+
+.final-step .card-body .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 82px;
+    height: 82px;
+    font-size: 24px;
+    color: var(--color-white);
+    margin: 0 auto;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.final-step .card-body .icon:before,
+.final-step .card-body .icon:after {
+    content: '';
+    display: block;
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.final-step .card-body .icon:before {
+
+    background: var(--color-primary);
+    width: 82px;
+    height: 82px;
+    opacity: .4;
+}
+
+.final-step .card-body .icon:after {
+    background: var(--color-primary);
+}
+
+.final-step .card-body .icon svg {
+    z-index: 5;
+}
+
+.final-step .card-body h3 {
+    font-size: 18px;
+    margin: 0;
+    padding: 15px 0;
+}
+
+.final-step .card-body p {
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 8px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.final-step .card-body p svg {
+    margin-right: 5px;
+}
