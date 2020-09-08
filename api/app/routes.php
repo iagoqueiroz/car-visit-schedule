@@ -8,6 +8,7 @@ use App\Application\Action\Schedule\ViewCarSchedulesAction;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\App;
+use Slim\Exception\HttpNotFoundException;
 use Slim\Routing\RouteCollectorProxy;
 
 return function (App $app) {
@@ -28,5 +29,9 @@ return function (App $app) {
         // Get all schedules from car id
         $group->get('/{id}/schedules', ViewCarSchedulesAction::class);
         $group->post('/{id}/schedules', AddCarScheduleAction::class);
+    });
+
+    $app->map(['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], '/{routes:.+}', function ($request, $response) {
+        throw new HttpNotFoundException($request);
     });
 };
