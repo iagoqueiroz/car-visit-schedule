@@ -3,6 +3,7 @@ import React from "react";
 import Header from "./components/Header";
 import Content from "./components/Content";
 
+import CarProvider from "./contexts/CarContext";
 import FormProvider from "./contexts/FormContext";
 
 import CarCard from "./components/CarCard";
@@ -15,14 +16,16 @@ const App = (props) => {
     <React.Fragment>
       <Header />
       <Content>
-        <aside>
-          <CarCard />
-        </aside>
-        <section>
-          <FormProvider>
-            <Form />
-          </FormProvider>
-        </section>
+        <CarProvider>
+          <aside>
+            <CarCard />
+          </aside>
+          <section>
+            <FormProvider>
+              <Form />
+            </FormProvider>
+          </section>
+        </CarProvider>
       </Content>
     </React.Fragment>
   );

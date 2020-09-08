@@ -1,26 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { MdLocationOn } from "react-icons/md";
 
-import api from "../../services/api";
+import { CarContext } from "../../contexts/CarContext";
 
 import "./styles.css";
 
 const CarCard = (props) => {
-  const [car, setCar] = useState({});
-
-  useEffect(() => {
-    const fetchCar = async () => {
-      try {
-        const { data } = await api.get("/cars/1");
-
-        setCar(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchCar();
-  }, []);
+  const { car } = useContext(CarContext);
 
   return (
     <div className="card car-card">
