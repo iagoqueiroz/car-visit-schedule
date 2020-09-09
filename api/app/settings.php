@@ -9,9 +9,9 @@ return function (ContainerBuilder $containerBuilder) {
             'displayErrorDetails' => true,
             'db'                  => [
                 'driver'    => 'mysql',
-                'host'      => 'localhost',
+                'host'      => 'mysql',
                 'database'  => 'car-visits',
-                'username'  => 'homestead',
+                'username'  => 'mysqluser',
                 'password'  => 'secret',
                 'charset'   => 'utf8mb4',
                 'collation' => 'utf8mb4_unicode_ci',
